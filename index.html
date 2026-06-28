@@ -239,7 +239,7 @@ function gameOver(){
 // ===== INPUT =====
 let tx=0,ty=0,sw=0;
 document.getElementById('gc').addEventListener('touchstart',function(e){e.preventDefault();const t=e.changedTouches[0];tx=t.clientX;ty=t.clientY;sw=1},{passive:false});
-document.getElementById('gc').addEventListener('touchmove',function(e){e.preventDefault();if(!sw||!S.run||S.over)return;const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;if(Math.abs(dx)>12||Math.abs(dy)>12){if(Math.abs(dx)>Math.abs(dy)){dx>0&&S.lane<2?S.targetLane=++S.lane:dx<0&&S.lane>0&&(S.targetLane=--S.lane)}else{ddy<0&&!S.jump?(S.jump=true,S.vy=S.jp,S.slide=false):dy>0&&!S.slide&&!S.jump&&(S.slide=true,S.st=15)}sw=0}},{passive:false});
+document.getElementById('gc').addEventListener('touchmove',function(e){e.preventDefault();if(!sw||!S.run||S.over)return;const t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;if(Math.abs(dx)>12||Math.abs(dy)>12){if(Math.abs(dx)>Math.abs(dy)){dx>0&&S.lane<2?S.targetLane=++S.lane:dx<0&&S.lane>0&&(S.targetLane=--S.lane)}else{dy<0&&!S.jump?(S.jump=true,S.vy=S.jp,S.slide=false):dy>0&&!S.slide&&!S.jump&&(S.slide=true,S.st=15)}sw=0}},{passive:false});
 document.getElementById('gc').addEventListener('touchend',function(e){e.preventDefault();sw=0},{passive:false});
 document.addEventListener('keydown',function(e){
   if(!S.run||S.over)return;
